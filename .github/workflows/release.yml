@@ -24,6 +24,7 @@ jobs:
 
     outputs:
       release_created: ${{ steps.release.outputs.release_created }}
+      tag: ${{ steps.release.outputs.tag_name }}
 
     steps:
       - name: Run release-please
@@ -73,6 +74,9 @@ jobs:
         uses: taiki-e/upload-rust-binary-action@v1
         with:
           bin: test-template
+          ref: refs/tags/${{ needs.release-please.outputs.tag }}
+          include: LICENSE-MIT,LICENSE-APACHE,README.md
+          archive: $bin-$tag-$target
           token: ${{ secrets.GITHUB_TOKEN }}
 
   publish-release:
