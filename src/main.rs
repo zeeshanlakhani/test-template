@@ -4,7 +4,7 @@
 
 //! test-template
 
-/// Main entry point.
+/// Main entry point yo.
 fn main() {
     println!("Welcome!")
 }

@@ -5,6 +5,8 @@
   "bump-minor-pre-major": true,
   "bump-patch-for-minor-pre-major": true,
   "packages": {
-    "test-template": {}
+    "test-template": {
+      "release-as": "0.1.0"
+    }
   }
 }
