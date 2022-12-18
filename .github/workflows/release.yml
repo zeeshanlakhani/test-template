@@ -47,9 +47,7 @@ jobs:
     permissions:
       contents: write
 
-    if: >
-      ${{ (needs.release-please.outputs.release_created || github.event.inputs.force-publish) &&
-      github.event.workflow_run.conclusion == 'success' }}
+    if: ${{ needs.release-please.outputs.release_created || github.event.inputs.force-publish }}
 
     strategy:
       matrix:
@@ -91,9 +89,7 @@ jobs:
     permissions:
       contents: write
 
-    if: >
-      ${{ (needs.release-please.outputs.release_created || github.event.inputs.force-publish) &&
-      github.event.workflow_run.conclusion == 'success' }}
+    if: ${{ needs.release-please.outputs.release_created || github.event.inputs.force-publish }}
 
     steps:
       - name: Checkout Repository
