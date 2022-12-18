@@ -20,7 +20,10 @@ concurrency:
 jobs:
   release-please:
     runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/main' && github.repository_owner == 'zeeshanlakhani'
+    if: >
+      github.ref == 'refs/heads/main' &&
+      github.repository_owner == 'zeeshanlakhani' &&
+      github.event.workflow_run.conclusion == 'success'
 
     outputs:
       release_created: ${{ steps.release.outputs.release_created }}
@@ -44,7 +47,9 @@ jobs:
     permissions:
       contents: write
 
-    if: ${{ needs.release-please.outputs.releases_created || github.event.inputs.force-publish }}
+    if: >
+      ${{ (needs.release-please.outputs.release_created || github.event.inputs.force-publish) &&
+      github.event.workflow_run.conclusion == 'success' }}
 
     strategy:
       matrix:
@@ -86,7 +91,9 @@ jobs:
     permissions:
       contents: write
 
-    if: ${{ needs.release-please.outputs.release_created || github.event.inputs.force-publish }}
+    if: >
+      ${{ (needs.release-please.outputs.release_created || github.event.inputs.force-publish) &&
+      github.event.workflow_run.conclusion == 'success' }}
 
     steps:
       - name: Checkout Repository
