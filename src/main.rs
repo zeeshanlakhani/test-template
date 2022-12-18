@@ -6,5 +6,5 @@
 
 /// Main entry point yo.
 fn main() {
-    println!("Welcome!!!!!")
+    println!("Welcome!!!!!!")
 }

@@ -87,6 +87,7 @@ jobs:
     needs: [ release-please ]
 
     permissions:
+      pull-requests: write
       contents: write
 
     if: ${{ needs.release-please.outputs.release_created || github.event.inputs.force-publish }}
