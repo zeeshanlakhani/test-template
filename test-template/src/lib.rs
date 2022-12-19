@@ -4,7 +4,7 @@
 
 //! test-template
 
-/// Add two integers together.
+/// Add two integers together!.
 pub fn add(a: i32, b: i32) -> i32 {
     a + b
 }
