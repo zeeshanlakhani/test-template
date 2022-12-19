@@ -43,7 +43,6 @@ jobs:
   build-and-release-auditable-bin:
     runs-on: ${{ matrix.os }}
     needs: [ release-please ]
-    fail-fast: false
 
     permissions:
       contents: write
@@ -51,6 +50,7 @@ jobs:
     if: ${{ needs.release-please.outputs.release_created || github.event.inputs.force-publish }}
 
     strategy:
+      fail-fast: false
       matrix:
         include:
           - target: aarch64-unknown-linux-gnu
