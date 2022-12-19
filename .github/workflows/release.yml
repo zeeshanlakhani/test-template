@@ -78,11 +78,15 @@ jobs:
           command: install
           args: cargo-auditable
 
-      - name: Install cross-compilation tools
+      - name: Install cross-compilation tools on Ubuntu-only
         uses: taiki-e/setup-cross-toolchain-action@v1
         with:
           target: ${{ matrix.target }}
-        if: startsWith(matrix.os, 'ubuntu')
+        if: startsWith(matrix.os, 'ubuntu')  && !contains(matrix.target, '-musl')
+
+      - name: Install cross for Musl
+        uses: taiki-e/install-action@cross
+        if: contains(matrix.target, '-musl')
 
       - name: Build Auditable Binary
         uses: actions-rs/cargo@v1
