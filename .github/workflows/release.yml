@@ -22,7 +22,7 @@ jobs:
     runs-on: ubuntu-latest
     if: >
       github.ref == 'refs/heads/main' &&
-      github.repository_owner == 'zeeshanlakhani'
+      github.repository_owner == 'zeeshanlakhani' &&
       github.event.workflow_run.conclusion == 'success'
 
     outputs:
