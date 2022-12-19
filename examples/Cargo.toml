@@ -1,12 +1,12 @@
 [package]
 name = "examples"
-version = "0.0.0"
+version = "0.0.1"
 publish = false
 edition = "2021"
 authors = ["Zeeshan Lakhani <zeeshan.lakhani@gmail.com>"]
 
 [dev-dependencies]
-test-template = { path = "../test-template", version = "0.1" }
+test-template = { path = "../test-template", version = "0.3.0" }
 
 [[example]]
 name = "counterparts"
