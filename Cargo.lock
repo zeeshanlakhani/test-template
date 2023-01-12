@@ -32,7 +32,7 @@ dependencies = [
 
 [[package]]
 name = "examples"
-version = "0.1.1"
+version = "0.1.2"
 dependencies = [
  "test-template",
 ]
@@ -170,7 +170,7 @@ dependencies = [
 
 [[package]]
 name = "test-template"
-version = "0.2.0"
+version = "0.3.0"
 dependencies = [
  "anyhow",
  "tracing",
@@ -179,7 +179,7 @@ dependencies = [
 
 [[package]]
 name = "test-template-wasm"
-version = "0.2.0"
+version = "0.3.0"
 dependencies = [
  "console_error_panic_hook",
  "js-sys",
