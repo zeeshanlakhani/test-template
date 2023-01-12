@@ -1,0 +1,31 @@
+[package]
+name = "test-template"
+version = "0.1.0"
+description = ""
+keywords = []
+categories = []
+include = ["/src", "README.md", "LICENSE"]
+license = "MIT"
+readme = "README.md"
+edition = "2021"
+rust-version = "1.64"
+documentation = "https://docs.rs/test-template"
+repository = "https://github.com/zeeshanlakhani/test-template/tree/main/test-template"
+authors = ["Zeeshan Lakhani <zeeshan.lakhani@gmail.com>"]
+
+[lib]
+path = "src/lib.rs"
+doctest = false
+
+[[bin]]
+name = "test-template"
+path = "src/main.rs"
+doc = true
+
+[dependencies]
+anyhow = "1.0"
+tracing = "0.1"
+tracing-subscriber = "0.3"
+
+[features]
+default = []

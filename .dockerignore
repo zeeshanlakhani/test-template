@@ -1,0 +1,8 @@
+*
+
+!**/Cargo.toml
+!**/Cargo.lock
+!**/src
+
+# for now, only include test-template binary
+test-template-wasm
