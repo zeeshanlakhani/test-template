@@ -72,11 +72,6 @@ jobs:
           args: --force cargo-workspaces
           command: install
 
-      - name: Cargo Publish to crates.io
-        env:
-          CARGO_REGISTRY_TOKEN: ${{ secrets.CARGO_REGISTRY_TOKEN }}
-        run: cargo workspaces publish --from-git
-
   publish-release-npm:
     if: ${{ needs.release-please.outputs.wasm_release_created || github.event.inputs.force-publish }}
 
@@ -119,12 +114,6 @@ jobs:
         run: |
           wasm-pack build --target web --out-name test-template
           sed -i -e 's/"name": "test-template-wasm"/"name": "test-template",\n  "type": "module"/g' pkg/package.json
-
-      - name: Publish to npm
-        run: wasm-pack publish
-        working-directory: pkg
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
   push-docker-build:
     runs-on: ubuntu-latest
