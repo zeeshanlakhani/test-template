@@ -1,5 +1,5 @@
 {
-  "test-template": "0.2.0",
-  "test-template-wasm": "0.2.0",
-  "examples": "0.1.1"
+  "test-template": "0.3.0",
+  "test-template-wasm": "0.3.0",
+  "examples": "0.1.2"
 }
